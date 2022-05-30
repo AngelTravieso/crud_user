@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { 
     leerUsuarios,
-    agregarUsuario
+    agregarUsuario,
+    borrarUsuario,
  } 
 = require('../controllers/homeController');
 
@@ -10,6 +11,7 @@ const {
 
 router.get('/', leerUsuarios);
 router.post('/', agregarUsuario);
+router.get('/eliminar/:id', borrarUsuario);
 
 
 module.exports = router;

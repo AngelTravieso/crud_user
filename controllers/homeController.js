@@ -38,7 +38,25 @@ const agregarUsuario = async (req, res) => {
 };
 
 
+const borrarUsuario = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+
+        await User.findByIdAndDelete(id);
+        res.redirect('/');
+
+    } catch(error) {
+        console.log(error);
+        res.send('Ha ocurrido un error...');
+    }
+
+};
+
+
 module.exports = {
     leerUsuarios,
     agregarUsuario,
+    borrarUsuario,
 }
